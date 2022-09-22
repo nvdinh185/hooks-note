@@ -1,51 +1,62 @@
 import { useState } from 'react';
-import Table from './components/Table';
+import Card from './components/CardComponent';
+import Input from './components/InputComponent';
+import './App.css';
+
+const NOTE_DATA = [
+    {
+        id: 1,
+        category: 'Must do',
+        content: 'This is the first task I must do',
+        time: '9/16/2022 AM',
+    },
+    {
+        id: 2,
+        category: 'Could do',
+        content: 'This is the first task I could do',
+        time: '9/16/2022 AM',
+    },
+    {
+        id: 3,
+        category: 'Can do',
+        content: 'This is the first task I can do',
+        time: '9/16/2022 AM',
+    },
+    {
+        id: 4,
+        category: 'Could do',
+        content: 'This is the first task I could do',
+        time: '9/16/2022 AM',
+    }
+]
 
 const App = () => {
-    const [state, setState] = useState({ numberList: [0] });
-    const onClick = () => {
-        // not ok
-        // state.numberList.push(1);
-        // setState(state);
+    const [list, setList] = useState(NOTE_DATA);
 
-        // ok
-        const { numberList } = state;
-        numberList.push(1);
-        setState({ numberList });
+    const handleAddNote = (form) => {
+        const item = {
+            id: list.length + 1,
+            ...form
+        };
+        const nextList = [...list];
+        nextList.push(item);
+        setList(nextList);
+        // console.log(nextList);
     }
+
     return (
         <>
-            <h1>length = {state.numberList.length}</h1>
-            <button onClick={onClick}>Set State</button>
-            <Table />
+            {list.map(it =>
+                <Card
+                    key={it.id}
+                    category={it.category}
+                    content={it.content}
+                    time={it.time}
+                />
+            )}
+            <Input onInputNote={(formInput) => handleAddNote(formInput)} />
         </>
     )
 }
-
-/*class App extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            numberList: []
-        };
-    }
-
-    onClick() {
-        const { numberList } = this.state;
-        numberList.push(1);
-        this.setState({ numberList });
-    }
-
-    render() {
-        const { numberList } = this.state;
-        return (
-            <>
-                <h1>length = {numberList.length}</h1>
-                <button onClick={() => this.onClick()}>Set State</button>
-            </>
-        )
-    }
-}*/
 
 export default App;
