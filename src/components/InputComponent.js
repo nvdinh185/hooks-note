@@ -44,7 +44,6 @@ class Input extends Component {
                     <input
                         name="time"
                         type="date"
-                        placeholder="YYYY/DD/MM"
                         onChange={({ target }) => {
                             this.setState({ form: { ...this.state.form, time: target.value } });
 

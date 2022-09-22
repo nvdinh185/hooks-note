@@ -8,25 +8,25 @@ const NOTE_DATA = [
         id: 1,
         category: 'Must do',
         content: 'This is the first task I must do',
-        time: '9/16/2022 AM',
+        time: '9/16/2022',
     },
     {
         id: 2,
         category: 'Could do',
         content: 'This is the first task I could do',
-        time: '9/16/2022 AM',
+        time: '9/16/2022',
     },
     {
         id: 3,
         category: 'Can do',
         content: 'This is the first task I can do',
-        time: '9/16/2022 AM',
+        time: '9/16/2022',
     },
     {
         id: 4,
         category: 'Could do',
         content: 'This is the first task I could do',
-        time: '9/16/2022 AM',
+        time: '9/16/2022',
     }
 ]
 
