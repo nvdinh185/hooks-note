@@ -1,12 +1,16 @@
 import { Component } from 'react';
 
-class Card extends Component {
+class Note extends Component {
     constructor(props) {
         super(props);
     }
 
-    onClick() {
-        console.log(123);
+    onClickToEdit(props) {
+        this.props.onCallEditNote(props);
+    }
+
+    onClickToDel(id) {
+        this.props.onDelNote(id);
     }
 
 
@@ -18,11 +22,11 @@ class Card extends Component {
                 <h4>{this.props.category}</h4>
                 <p>{this.props.content}</p>
                 <p>{this.props.time}</p>
-                <button className='btn-outline-light btn-success text-dark' onClick={() => this.onClick()}>Edit</button>
-                <button className='btn-outline-light btn-secondary text-dark' onClick={() => this.onClick()}>Del</button>
+                <button className='btn-outline-light btn-success text-dark' onClick={() => this.onClickToEdit(this.props)}>Edit</button>
+                <button className='btn-outline-light btn-secondary text-dark' onClick={() => this.onClickToDel(this.props.id)}>Del</button>
             </div>
         )
     }
 }
 
-export default Card
+export default Note
