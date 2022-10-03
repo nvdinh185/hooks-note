@@ -54,6 +54,7 @@ const INITIAL_FORM = {
 const App = () => {
     const [list, setList] = useState(NOTE_DATA);
     const [form, setForm] = useState(INITIAL_FORM);
+    const [searchNotes, setSearchNotes] = useState("");
 
     const handleAddNote = (form) => {
         const item = {
@@ -98,17 +99,31 @@ const App = () => {
 
     return (
         <>
-            {list.map(it =>
-                <Note
-                    key={it.id}
-                    id={it.id}
-                    category={it.category}
-                    content={it.content}
-                    time={it.time}
-                    onCallEditNote={(formEdit) => callEditNote(formEdit)}
-                    onDelNote={(id) => handleDelNote(id)}
-                />
-            )}
+            {list.filter((it) => {
+                if (searchNotes == "") {
+                    return it;
+                } else if (it.content.toLowerCase().includes(searchNotes.toLowerCase())) {
+                    return it;
+                }
+            })
+                .map(it =>
+                    <Note
+                        key={it.id}
+                        id={it.id}
+                        category={it.category}
+                        content={it.content}
+                        time={it.time}
+                        onCallEditNote={(formEdit) => callEditNote(formEdit)}
+                        onDelNote={(id) => handleDelNote(id)}
+                    />
+                )}
+            <input
+                className="input-text"
+                type="text"
+                placeholder="Enter your key of Note to Search"
+                onChange={(e) => setSearchNotes(e.target.value)}
+                value={searchNotes}
+            />
             <Input
                 formData={form}
                 onAddNote={(formInput) => handleAddNote(formInput)}
