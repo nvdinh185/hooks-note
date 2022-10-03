@@ -59,7 +59,7 @@ const App = () => {
         const item = {
             id: list.length + 1,
             ...form
-        };
+        }
         const nextList = [...list];
         nextList.push(item);
         setList(nextList);
@@ -105,11 +105,16 @@ const App = () => {
                     category={it.category}
                     content={it.content}
                     time={it.time}
-                    onCallEditNote={(id) => callEditNote(id)}
+                    onCallEditNote={(formEdit) => callEditNote(formEdit)}
                     onDelNote={(id) => handleDelNote(id)}
                 />
             )}
-            <Input formData={form} onAddNote={(formInput) => handleAddNote(formInput)} onEditNote={(formEdit) => handleEditNote(formEdit)} onResetForm={() => handleResetForm()} />
+            <Input
+                formData={form}
+                onAddNote={(formInput) => handleAddNote(formInput)}
+                onEditNote={(formEdit) => handleEditNote(formEdit)}
+                onResetForm={() => handleResetForm()}
+            />
         </>
     )
 }

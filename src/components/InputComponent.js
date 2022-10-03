@@ -31,10 +31,6 @@ const Input = (props) => {
             props.onAddNote(form);
         }
 
-        callResetForm();
-    }
-
-    const callResetForm = () => {
         props.onResetForm();
     }
 
