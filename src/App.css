@@ -6,5 +6,10 @@
 .input-text {
     border: 1px solid black;
     margin: 0 auto;
-    width: 50%;
+    width: 100%;
+}
+
+.float {
+    float: left;
+    width: 20%;
 }

@@ -16,7 +16,7 @@ class Note extends Component {
 
     render() {
         const bg = this.props.category == "Must do" ? "bg-danger" : this.props.category == "Could do" ? "bg-warning" : "bg-primary";
-        const classCss = `container border wrapper ${bg}`;
+        const classCss = `container border wrapper float ${bg}`;
         return (
             <div className={classCss}>
                 <h4>{this.props.category}</h4>
