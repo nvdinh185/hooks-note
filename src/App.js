@@ -41,7 +41,7 @@ const getCurrentDate = function () {
         dd = '0' + dd;
     }
     const yy = date.getFullYear();
-    let currentDate = yy.toString() + '-' + mm.toString() + '-' + dd.toString();
+    const currentDate = yy.toString() + '-' + mm.toString() + '-' + dd.toString();
     return currentDate;
 }
 
