@@ -100,7 +100,7 @@ const App = () => {
     return (
         <>
             {list.filter((it) => {
-                if (searchNotes == "") {
+                if (searchNotes === "") {
                     return it;
                 } else if (it.content.toLowerCase().includes(searchNotes.toLowerCase())) {
                     return it;

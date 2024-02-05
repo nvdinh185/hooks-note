@@ -1,9 +1,6 @@
 import { Component } from 'react';
 
 class Note extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     onClickToEdit(props) {
         this.props.onCallEditNote(props);
@@ -15,7 +12,7 @@ class Note extends Component {
 
 
     render() {
-        const bg = this.props.category == "Must do" ? "bg-danger" : this.props.category == "Could do" ? "bg-warning" : "bg-primary";
+        const bg = this.props.category === "Must do" ? "bg-danger" : this.props.category === "Could do" ? "bg-warning" : "bg-primary";
         const classCss = `container border wrapper float ${bg}`;
         return (
             <div className={classCss}>
